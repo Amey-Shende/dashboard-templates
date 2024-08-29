@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
-import { Button, Card, CardBody, CardTitle, Form, Input, Label, } from 'reactstrap';
-import { toast, ToastContainer } from 'react-toastify';
+import { Link, useNavigate } from 'react-router-dom';
+import { Card, CardBody, CardTitle, Form,  } from 'reactstrap';
+import { toast } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
 
+import InputComponent from '../../components/InputComponent';
+import ButtonComponent from '../../components/ButtonComponent';
 
 function ForgotPassword() {
 
@@ -18,7 +21,9 @@ function ForgotPassword() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        toast.success("OTP is send to +91********345", {
+
+        toast.dismiss();
+        toast.success("OTP is send successfully to +91********345", {
             position: "top-center",
             autoClose: 3000
         });
@@ -31,7 +36,6 @@ function ForgotPassword() {
 
         <div className=' d-flex justify-content-center align-items-center vh-100 '>
             <ToastContainer />
-
             <Card className='p-4 shadow-lg col-10 col-sm-7 col-md-5 col-lg-3 rounded-3'>
 
                 <CardTitle tag="h4" className=' text-center '>
@@ -47,32 +51,34 @@ function ForgotPassword() {
                     <Form>
 
                         {/* Username */}
-                        <div className='mb-2'>
-                            <Label for="username">Username*</Label>
-                            <Input
-                                type="email"
-                                placeholder='Enter the username'
-                                name="username"
-                                id="username"
-                                className='form-control remove-focus-ring'
-                                value={forgotUsername}
-                                onChange={handleChanage}
-                            />
-                        </div>
+                        <InputComponent
+                            divClassName="mb-2"
+                            label="Username"
+
+                            type="email"
+                            placeholder='Enter the username'
+                            name="username"
+                            id="username"
+                            className=''
+                            value={forgotUsername}
+                            onChange={handleChanage}
+                        />
 
                         {/* otp send button (Submit) */}
-                        <div className='text-center mt-3 '>
-                            <Button color='primary' className='w-100 py-2' onClick={handleSubmit}>
-                                Send Code
-                            </Button>
-                        </div>
+                        <ButtonComponent
+                            divClassName="mt-3"
+                            color='primary'
+                            className='w-100 py-2'
+                            onClick={handleSubmit}
+                            label='Send Code'
+                        />
 
                         {/* Back to Login link */}
                         <div className="text-center text-primary mt-2">
                             <small>
-                                <NavLink to="/login" className='text-decoration-none'>
+                                <Link to="/login" className='text-decoration-none'>
                                     Back to Login
-                                </NavLink>
+                                </Link>
                             </small>
                         </div>
 

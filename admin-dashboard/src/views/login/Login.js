@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate, NavLink } from 'react-router-dom';
-import { Card, CardTitle, CardBody, Form, Button, Label, Input } from 'reactstrap';
+import { useNavigate, Link } from 'react-router-dom';
+import { Card, CardTitle, CardBody, Form, } from 'reactstrap';
 import { IoMdEyeOff } from "react-icons/io";
 import { IoMdEye } from "react-icons/io";
 import { toast, ToastContainer } from 'react-toastify';
+import InputComponent from '../../components/InputComponent';
+import ButtonComponent from '../../components/ButtonComponent';
 
 
 // sample data for Login
@@ -69,7 +71,7 @@ function Login() {
             })
 
         } else {
-            // alert("Enter valid data");
+          
             toast.error("Invalid username and password!", {
                 position: "top-center",
                 autoClose: 2000,
@@ -94,69 +96,62 @@ function Login() {
 
                 <CardBody>
                     <Form >
-                        {/* Username */}
-                        <div className='mb-2'>
-                            <Label for="username">Username</Label>
-                            <Input
-                                type="email"
-                                placeholder='Enter the username'
-                                name="username"
-                                id="username"
-                                className='form-control remove-focus-ring'
-                                value={loginData.username}
-                                onChange={handleChanage}
-                            />
-                        </div>
 
-                        {/* Password */}
-                        <div className='mb-2 position-relative'>
-                            <Label for="password">Password</Label>
-                            <Input
-                                type={passwordVisibilityIcon ? 'password' : 'text'}
-                                placeholder='***********'
-                                name="password"
-                                id="password"
-                                className="form-control pe-5  remove-focus-ring"
-                                value={loginData.password}
-                                onChange={handleChanage}
-                            />
-                            <span
-                                onClick={passwordVisible}
-                                className="position-absolute "
-                                style={{ top: '70%', right: '10px', transform: 'translateY(-50%)', cursor: 'pointer', fontSize: "1.25rem" }}
-                            >
-                                {passwordVisibilityIcon ? <IoMdEyeOff /> : <IoMdEye />}
-                            </span>
+                        {/******* Username *******/}
+                        <InputComponent
+                            divClassName='mb-2'
+                            label="Username"
 
-                        </div>
+                            type="email"
+                            placeholder='Enter the username'
+                            name="username"
+                            id="username"
+                            className=''
+                            value={loginData.username}
+                            onChange={handleChanage}
+                        />
 
+                        {/******* Password *******/}
+                        <InputComponent
+                            divClassName='mb-2 position-relative'
+                            label="Password"
+
+                            type={passwordVisibilityIcon ? 'password' : 'text'}
+                            placeholder='***********'
+                            name="password"
+                            id="password"
+                            className='pe-5'
+                            value={loginData.password}
+                            onChange={handleChanage}
+                        />
+                        {/* eye icon */}
+                        <span
+                            onClick={passwordVisible}
+                            className="position-absolute "
+                            style={{ top: '56%', right: '50px', transform: 'translateY(-50%)', cursor: 'pointer', fontSize: "1.25rem" }}
+                        >
+                            {passwordVisibilityIcon ? <IoMdEyeOff /> : <IoMdEye />}
+                        </span>
+
+
+                        {/******* forgot password link *******/}
                         <div>
                             <small className='text-primary'>
-                                <NavLink to="/forgot" className="text-decoration-none">
+                                <Link to="/forgot" className="text-decoration-none">
                                     Forgot password?
-                                </NavLink>
+                                </Link>
                             </small>
                         </div>
 
-                        {/* Login Button */}
-                        <div className='text-center mt-3'>
-                            <Button
-                                className=' w-100 py-2 mb-2'
-                                size='md'
-                                color='primary'
-                                onClick={handleSubmit}
-                            >
-                                Login
-                            </Button>
-                            <br></br>
+                        {/******* Login Button *******/}
+                        <ButtonComponent
+                            divClassName="mt-3"
+                            className="w-100 py-2 mb-2"
+                            label="Login"
+                            color="primary"
+                            onClick={handleSubmit}
+                        />
 
-                            <small>
-                                Don't have account?
-                                <NavLink to="/register" className="text-decoration-none">
-                                    Register
-                                </NavLink>
-                            </small>
-                        </div>
                     </Form>
 
                 </CardBody>

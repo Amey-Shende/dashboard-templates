@@ -23,12 +23,18 @@ const Header = ({ showMobilemenu, handleNotification, handleLogout }) => {
         setIsOpen(!isOpen);
     };
 
+    // toggle navbar collpase (dropdown) 
+    const toggle = () => setDropdownOpen((prevState) => !prevState);
+
+    //**  navigate to profile component */
     const handleProfile = (e) => {
         navigate("/dashboard/profile");
     }
 
-
-    const toggle = () => setDropdownOpen((prevState) => !prevState);
+    //** navigate to Change password component  */
+    const handleChangePassword = (e) => {
+        navigate("/dashboard/changePassword");
+    }
 
     return (
 
@@ -80,7 +86,7 @@ const Header = ({ showMobilemenu, handleNotification, handleLogout }) => {
                     <form >
                         <input
                             className="form-control searchBox "
-                            type="search" placeholder="Search" aria-label="Search"
+                            type="search" placeholder="Search event" aria-label="Search"
                         />
                     </form>
                 </div>
@@ -131,8 +137,13 @@ const Header = ({ showMobilemenu, handleNotification, handleLogout }) => {
                             </DropdownItem>
 
                             <DropdownItem> Edit Profile </DropdownItem>
-                            <DropdownItem> Change Password </DropdownItem>
+                            
+                            <DropdownItem onClick={handleChangePassword}>
+                                Change Password
+                            </DropdownItem>
+
                             <DropdownItem divider />
+
                             <DropdownItem onClick={handleLogout}>
                                 <MdOutlineLogout style={{ fontSize: "20px" }} /> Logout
                             </DropdownItem>

@@ -13,7 +13,6 @@ function NotificationPanel({ handleNotification }) {
                     className="ms-auto text-black me-3"
                     onClick={handleNotification}
                 >
-                    {/* <i className="bi bi-x fs-2 "></i> */}
                     <RiCloseLargeFill  />
                 </Button>
             </div>

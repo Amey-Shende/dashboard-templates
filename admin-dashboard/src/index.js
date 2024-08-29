@@ -7,6 +7,7 @@ import "./assets/scss/style.scss";
 import Loader from "./layouts/loader/Loader";
 import { BrowserRouter } from 'react-router-dom';
 import ErrorBoundry from './layouts/errorBoundry/ErrorBoundry';
+// import CustomNavbar from './CustomeNavbar';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -20,6 +21,7 @@ root.render(
         </Suspense>
       </BrowserRouter>
 
+      {/* <CustomNavbar /> */}
     </ErrorBoundry>
 
   </React.StrictMode >

@@ -5,6 +5,7 @@ import { Outlet, useNavigate } from 'react-router-dom';
 import Loader from './loader/Loader';
 
 import NotificationPanel from './NotificationPanel';
+import { ToastContainer } from 'react-toastify';
 
 const Header = lazy(() => import('./Header'));
 const Sidebar = lazy(() => import('./Sidebar'));
@@ -40,6 +41,8 @@ function FullLayout() {
     return (
 
         <main >
+            <ToastContainer />
+            
             {/*********** Header ***********/}
             <Header showMobilemenu={showMobilemenu} handleNotification={handleNotification} handleLogout={handleLogout} />
 

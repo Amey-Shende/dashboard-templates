@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Card, CardBody } from 'reactstrap';
+import {  Card, CardBody } from 'reactstrap';
+import ButtonComponent from '../../components/ButtonComponent';
 
 // Confirmation button if user write
 function OTPVerification() {
@@ -8,7 +9,7 @@ function OTPVerification() {
     const navigate = useNavigate();
 
     const handleSubmit = () => {
-        navigate("/forgot/newPassword");
+        navigate("/forgot/setNewPassword");
     };
 
     return (
@@ -22,11 +23,13 @@ function OTPVerification() {
                 </small>
 
                 <CardBody>
-                    <div className='text-center mt-3 '>
-                        <Button color='primary' className='w-100 py-2' onClick={handleSubmit}>
-                            Confirm
-                        </Button>
-                    </div>
+                    <ButtonComponent
+                        divClassName="mt-3"
+                        color='primary'
+                        className='w-100 py-2'
+                        label="Confirm"
+                        onClick={handleSubmit}
+                    />
                 </CardBody>
             </Card>
         </div >
