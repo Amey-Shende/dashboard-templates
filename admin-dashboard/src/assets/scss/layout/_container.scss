@@ -1,0 +1,107 @@
+.pageWrapper {
+    min-height: 100vh;
+}
+
+.contentArea {
+    flex-grow: 1;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.card {
+    box-shadow: $card-box-shadow;
+    margin-bottom: 30px;
+    background-color: $white;
+}
+
+.list-group-item {
+    background-color: $white !important;
+}
+
+.circle-box {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 100%;
+
+    &.lg-box {
+        width: 60px;
+        height: 60px;
+        font-size: 21px;
+        line-height: 60px;
+    }
+}
+
+.button-group .btn {
+    margin: 3px;
+}
+
+.searchBox:focus {
+    outline: none;
+    border-bottom-width: 2px;
+    // border-bottom-color: rgba(105, 105, 206, 0.847);
+    border-bottom-color: $primary;
+    box-shadow: none;
+}
+
+.notificationPanel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 25vw;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(100%);
+    z-index: 2000;
+}
+
+@include media-breakpoint-down(lg) {
+    .notificationPanel {
+        width: 40vw;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .notificationPanel {
+        width: 60vw;
+    }
+}
+
+/* Style when the panel is open */
+/* Slide in */
+.notificationPanel.open {
+    transform: translateX(0);
+}
+
+/* Style when the panel is closed */
+/* Slide out */
+.notificationPanel.closed {
+    transform: translateX(100%);
+
+}
+
+// Remove focus outline on input-field (form-control)
+.remove-focus-ring:focus {
+    box-shadow: none !important;
+    outline: none !important;
+    border-color: inherit;
+}
+
+table {
+
+    th,
+    td {
+        background-color: $white !important;
+    }
+
+    th {
+        font-weight: 500;
+    }
+}
+
+.dropdown-menu {
+    background-color: $white !important;
+}
