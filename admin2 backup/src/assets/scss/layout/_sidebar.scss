@@ -1,0 +1,44 @@
+.sidebarArea {
+    flex-shrink: 0;
+    width: $sidebarWidth;
+    max-width: $sidebarWidth ;
+    height: 100vh;
+    background-color: $sidebarColor;
+    // background-color: rgba(0, 0, 0, 0.937);
+    border-end-end-radius: 7px;
+    border-top-right-radius: 7px;
+
+    .nav-link {
+        color: white;
+    }
+
+    .sidenav-bg {
+        .active {
+            background-color: $primary;
+            border-radius: $border-radius;
+            color: white;
+        }
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            // background-color: #d6e4f3;
+            border-radius: $border-radius;
+        }
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    .sidebarArea {
+        position: fixed;
+        height: 100vh;
+        overflow: auto;
+        top: 0;
+        z-index: 2000;
+        margin-left: -$sidebarWidth;
+        transition: 0.2s ease-in;
+
+        &.showSidebar {
+            margin-left: 0px;
+        }
+    }
+}
