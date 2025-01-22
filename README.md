@@ -1,3 +1,2 @@
-# Yipee-project
-yipee-dashboard  project  admin panel  <br> <br>
+# dashboard-project
 **Tech stack** :- React , Boostrap , reactstrap , react-icons
